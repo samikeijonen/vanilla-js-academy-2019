@@ -61,8 +61,8 @@
 		var passwordField = document.querySelector( '[name="password"]' );
 		var showPassword = document.querySelector( '.show-passwords' );
 
-		function handleClick( e ) {
-			if ( e.target.checked ) {
+		function handleClick() {
+			if ( showPassword.checked ) {
 				passwordField.setAttribute( 'type', 'text' );
 			} else {
 				passwordField.setAttribute( 'type', 'password' );
