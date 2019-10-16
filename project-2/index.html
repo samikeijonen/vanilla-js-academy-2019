@@ -49,18 +49,13 @@
 	<script>
 		var passwordFields = document.querySelectorAll( '.password' );
 		passwordFields = Array.prototype.slice.call( passwordFields );
+
 		var showPassword = document.querySelector( '.show-passwords' );
 
 		function handleClick() {
-			if ( showPassword.checked ) {
-				passwordFields.forEach( function ( passwordField, index ) {
-					passwordField.setAttribute( 'type', 'text' );
-				});
-			} else {
-				passwordFields.forEach( function ( passwordField, index ) {
-					passwordField.setAttribute( 'type', 'password' );
-				});
-			}
+			passwordFields.forEach( function ( passwordField, index ) {
+				showPassword.checked ? passwordField.type = 'text' : passwordField.type = 'password';
+			});
 		}
 
 		showPassword.addEventListener( 'click', handleClick, false );
