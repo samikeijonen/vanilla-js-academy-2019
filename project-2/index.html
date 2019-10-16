@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<title>Password Visibility</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+	<main class="main mx-auto max-w-md px-2 py-6">
+		<article class="entry spacing-top">
+			<h1>Password Visibility</h1>
+
+			<p>Enter your username and password to login.</p>
+
+			<ul>
+				<li>Change input type from password to text.</li>
+				<li>Listen click event on checkbox.</li>
+				<li>When state is <code>checked</code>, use type <code>text</code> for all password fields.</li>
+				<li>Use <code>querySelectorAll</code> for looping all password fields.</li>
+			</ul>
+
+			<form class="spacing-top">
+				<p>
+					<label for="current-password">Current Password</label>
+					<input class="password" type="password" name="current-password" id="current-password">
+				</p>
+
+				<p>
+					<label for="new-password">New Password</label>
+					<input class="password" type="password" name="new-password" id="new-password">
+				</p>
+
+				<p>
+					<label for="show-passwords">
+						<input class="show-passwords" type="checkbox" name="show-passwords" id="show-passwords">
+						Show passwords
+					</label>
+				</p>
+
+				<p>
+					<button type="submit">Change Passwords</button>
+				</p>
+			</form>
+		</article>
+	</main>
+
+	<script>
+		var passwordFields = document.querySelectorAll( '.password' );
+		passwordFields = Array.prototype.slice.call( passwordFields );
+		var showPassword = document.querySelector( '.show-passwords' );
+
+		function handleClick() {
+			if ( showPassword.checked ) {
+				passwordFields.forEach( function ( passwordField, index ) {
+					passwordField.setAttribute( 'type', 'text' );
+				});
+			} else {
+				passwordFields.forEach( function ( passwordField, index ) {
+					passwordField.setAttribute( 'type', 'password' );
+				});
+			}
+		}
+
+		showPassword.addEventListener( 'click', handleClick, false );
+	</script>
+</body>
+</html>

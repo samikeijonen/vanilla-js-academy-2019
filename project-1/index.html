@@ -1,61 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
+	<meta charset="utf-8">
 	<title>Password Visibility</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<style type="text/css">
-		body {
-			margin: 1em auto;
-			max-width: 40em;
-			width: 88%;
-		}
-		label {
-			display: block;
-			width: 100%;
-		}
-		input {
-			margin-bottom: 1em;
-		}
-		[type="checkbox"] {
-			margin-bottom: 0;
-			margin-right: 0.25em;
-		}
-	</style>
+	<link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+	<main class="main mx-auto max-w-md px-2 py-6">
+		<article class="entry spacing-top">
+			<h1>Password Visibility</h1>
 
-	<h1>Password Visibility</h1>
+			<p>Enter your username and password to login.</p>
 
-	<p>Enter your username and password to login.</p>
+			<ul>
+				<li>Change input type from password to text.</li>
+				<li>Listen click event on checkbox.</li>
+				<li>When state is `checked`, use type `text`.</li>
+			</ul>
 
-    <ul>
-		<li>Change input type from password to text.</li>
-		<li>Listen click event on checkbox.</li>
-		<li>When state is `checked`, use type `text`.</li>
-    <ul>
+			<form class="spacing-top">
+				<p>
+					<label for="username">Username</label>
+					<input type="text" name="username" id="username">
+				</p>
 
-	<form>
-		<div>
-			<label for="username">Username</label>
-			<input type="text" name="username" id="username">
-		</div>
+				<p>
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password">
+				</p>
 
-		<div>
-			<label for="password">Password</label>
-			<input type="password" name="password" id="password">
-		</div>
+				<p>
+					<label for="show-password">
+						<input class="show-passwords" type="checkbox" name="show-passwords" id="show-password">
+						Show password
+					</label>
+				</p>
 
-		<div>
-			<label for="show-password">
-				<input class="show-passwords" type="checkbox" name="show-passwords" id="show-password">
-				Show password
-			</label>
-		</div>
-
-		<p>
-			<button type="submit">Log In</button>
-		</p>
-	</form>
+				<p>
+					<button type="submit">Log In</button>
+				</p>
+			</form>
+		</article>
+	</main>
 
 	<script>
 		var passwordField = document.querySelector( '[name="password"]' );
