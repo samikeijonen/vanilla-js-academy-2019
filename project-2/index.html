@@ -54,7 +54,7 @@
 
 		function handleClick() {
 			passwordFields.forEach( function ( passwordField, index ) {
-				showPassword.checked ? passwordField.type = 'text' : passwordField.type = 'password';
+				passwordField.type = showPassword.checked ? 'text' : 'password';
 			});
 		}
 
