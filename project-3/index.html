@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<title>Password Visibility</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+	<main class="main mx-auto max-w-md px-2 py-6">
+		<article class="entry spacing-top">
+			<h1>Password Visibility on Multiple Forms</h1>
+
+			<h2>Change Username</h2>
+
+			<p>Enter your username and password to change your username.</p>
+
+			<form class="spacing-top">
+				<div>
+					<label for="username">Username</label>
+					<input type="text" name="username" id="username">
+				</div>
+
+				<div>
+					<label for="password">Password</label>
+					<input class="js-password js-show-passwords-1" type="password" name="password" id="password">
+				</div>
+
+				<div>
+					<label for="show-password">
+						<input class="js-show-password js-show-password-1" type="checkbox" name="js-show-passwords-1" id="show-password">
+						Show password
+					</label>
+				</div>
+
+				<p>
+					<button type="submit">Change Username</button>
+				</p>
+			</form>
+
+			<h2>Change Password</h2>
+
+			<p>Enter your current password and new password below.</p>
+
+			<form class="spacing-top">
+				<div>
+					<label for="current-password">Current Password</label>
+					<input class="js-password js-show-passwords-2" type="password" name="current-password" id="current-password">
+				</div>
+
+				<div>
+					<label for="new-password">New Password</label>
+					<input class="js-password js-show-passwords-2" type="password" name="new-password" id="new-password">
+				</div>
+
+				<div>
+					<label for="show-passwords">
+						<input class="js-show-password js-show-password-2" type="checkbox" name="js-show-passwords-2" id="show-passwords">
+						Show passwords
+					</label>
+				</div>
+
+				<p>
+					<button type="submit">Change Passwords</button>
+				</p>
+			</form>
+		</article>
+	</main>
+
+	<script>
+		var passwordFields = document.querySelectorAll( '.js-password' );
+		passwordFields = Array.prototype.slice.call( passwordFields );
+
+		function handleClick( event ) {
+			// Bail if we are not changing password checkbox.
+			if ( ! event.target.matches( '.js-show-password' ) ) {
+				return;
+			}
+
+			passwordFields.forEach( function ( passwordField, index ) {
+				// Check that target `name` matches the passwordfield class name.
+				// This way only correct form will be targeted.
+				if ( passwordField.matches( '.' + event.target.name ) ) {
+					passwordField.type = event.target.checked ? 'text' : 'password';
+				}
+			} );
+		}
+
+		document.addEventListener( 'change', handleClick, false );
+	</script>
+</body>
+</html>
