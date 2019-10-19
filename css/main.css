@@ -16,18 +16,18 @@
 	--screen-lg: 66em;
 
 	/* Colors. */
-	--primary-hue: 256;
-	--color-primary-hsl: var(--primary-hue), 100%, 52%;
+	--primary-hue: 235;
+	--color-primary-hsl: var(--primary-hue), 45%, 50%;
 	--color-primary: hsl(var(--color-primary-hsl));
-	--color-primary-100: hsl(var(--primary-hue), 20%, 97%);
-	--color-primary-300: hsl(var(--primary-hue), 40%, 80%);
+	--color-primary-100: hsl(var(--primary-hue), 10%, 10%);
+	--color-primary-300: hsl(var(--primary-hue), 8%, 20%);
 	--color-primary-500: var(--color-primary);
 	--color-primary-700: hsl(var(--primary-hue), 90%, 25%);
 	--color-primary-800: hsl(var(--primary-hue), 95%, 10%);
 	--color-primary-900: hsl(var(--primary-hue), 100%, 5%);
 
 	--color-grey: hsl(0, 0%, 44%);
-	--color-grey-100: hsl(0, 0%, 93%);
+	--color-grey-100: hsl(var(--primary-hue), 5%, 90%);
 	--color-grey-300: hsl(0, 0%, 75%);
 	--color-grey-500: var(--color-grey);
 	--color-grey-700: hsl(0, 0%, 29%);
@@ -189,8 +189,8 @@ html {
 --------------------------------------------------------------*/
 
 body {
-	background-color: var(--color-white);
-	color: var(--color-grey-700);
+	background-color: var(--color-primary-100);
+	color: var(--color-grey-100);
 	font-family: var(--font-family);
 	font-size: var(--font-size-xl);
 	line-height: var(--line-height-md);
@@ -201,7 +201,7 @@ h1,
 h2,
 h3,
 h4 {
-	color: var(--color-primary-900);
+	color: var(--color-white);
 }
 
 h1 {
@@ -260,9 +260,10 @@ input[type="datetime-local"],
 input[type="color"],
 textarea,
 select {
-	background-color: var(--color-white);
-	border: 2px solid var(--color-grey-500);
+	background-color: var(--color-primary-300);
+	border: 2px solid var(--color-primary-300);
 	border-radius: 0;
+	color: var(--color-white);
 	padding: var(--spacing);
 	width: 100%;
 	transition: all var(--transition-duration-md) easy-in-out;
@@ -285,7 +286,7 @@ input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus,
 select:focus {
-	border-color: var(--color-primary);
+	border-color: var(--color-white);
 	box-shadow: 0 0 var(--spacing-sm) var(--color-primary-shadow);
 	/* Use transparent outline for Windows high contrast mode. */
 	outline: 2px solid transparent;
