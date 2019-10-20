@@ -12,9 +12,19 @@
 	 * Calculate textarea lenght and output using textContent.
 	 */
 	var handleInput = function () {
-		textCount.textContent = text.value.length;
+		// Update char count.
+		var charCount = text.value.length
+		textCount.textContent = charCount;
+
+		// Speak the dynamic change.
+		speak( 'You\'ve written ' + charCount +  ' characters.' );
 	}
 
 	text.addEventListener( 'input', handleInput, false );
-	document.addEventListener( 'DOMContentLoaded', handleInput, false );
+
+	// Create div for speak.
+	addSpeakContainer();
+
+	// Update fields on page load.
+	handleInput();
 })();
