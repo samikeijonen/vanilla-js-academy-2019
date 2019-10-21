@@ -262,7 +262,7 @@ textarea,
 select {
 	background-color: var(--color-primary-300);
 	border: 2px solid var(--color-primary-300);
-	border-radius: 0;
+	border-radius: var(--spacing-sm);
 	color: var(--color-white);
 	padding: var(--spacing);
 	width: 100%;
@@ -303,7 +303,7 @@ input[type="reset"],
 input[type="submit"] {
 	background-color: var(--color-primary);
 	border: none;
-	border-radius: 0;
+	border-radius: var(--spacing-sm);
 	color: var(--color-white);
 	font-weight: 500;
 	padding: var(--spacing-2x) var(--spacing-5x);
