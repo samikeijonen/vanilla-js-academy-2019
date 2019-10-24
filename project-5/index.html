@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<title>Character count</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+	<main class="main mx-auto max-w-md px-2 py-6">
+		<article class="entry spacing-top">
+			<h1>Character count</h1>
+
+			<ul>
+				<li>Listen <code>input</code> on textarea.</li>
+				<li>Calculate <code>value</code> length.</li>
+				<li>Use <code>textContent</code> to populate character count.</li>
+			</ul>
+
+			<form>
+				<label for="text">Enter your text below.</label>
+				<textarea class="js-text" id="text"></textarea>
+			</form>
+
+			<p>You've written <strong><span class="js-word-count" id="word-count">0</span> words</strong> and <strong><span class="js-char-count" id="character-count">0</span> characters</strong>.</p>
+
+		</article>
+	</main>
+
+	<script src="../js/helpers.js" async></script>
+	<script src="main.js" async></script>
+</body>
+</html>
