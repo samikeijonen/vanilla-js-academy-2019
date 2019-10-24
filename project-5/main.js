@@ -17,8 +17,8 @@
 		var charCount = text.value.length
 		textCount.textContent = charCount;
 
-		// Get words.
-		var words = text.value.split( ' ' );
+		// Get words. \s for spaces, \n and \r for line breaks.
+		var words = text.value.split( /[\n\r\s]+/g );
 
 		// Remove empty arrays, meaning only spaces.
 		var wordsCleaned = words.filter( function ( word ) {
