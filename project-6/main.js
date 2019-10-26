@@ -6,7 +6,7 @@
 		return;
 	}
 
-	var endPoint = 'http://ron-swanson-quotes.herokuapp.com/v2/quotes';
+	var endPoint = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes';
 	var newQuote = document.querySelector( '.js-new-ron' );
 
 	/**
