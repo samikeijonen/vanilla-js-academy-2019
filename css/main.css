@@ -225,6 +225,13 @@ a:active {
 	color: var(--color-primary-900);
 }
 
+/* Blockquote. */
+blockquote {
+	border-inline-start: var(--spacing-sm) solid;
+	font-size: var(--font-size-2xl);
+	padding-inline-start: var(--spacing-2x);
+}
+
 /* Tables. */
 table {
 	border-collapse: separate;
