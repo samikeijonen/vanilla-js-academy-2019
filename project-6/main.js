@@ -24,6 +24,9 @@
 			// This is the JSON from our response.
 			console.log( data );
 			quote.textContent = data[0];
+
+			// Speak the dynamic change.
+			speak( 'New random quote have been generated.' );
 		} ).catch( function ( err ) {
 			// There was an error.
 			console.warn( 'Something went wrong.', err );
@@ -40,6 +43,9 @@
 
 	// Listen button click.
 	newQuote.addEventListener( 'click', handleClick, false );
+
+	// Create div for speak.
+	addSpeakContainer();
 
 	// Fetch Quote on page load.
 	fetchQuote();
