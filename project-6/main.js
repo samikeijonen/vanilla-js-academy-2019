@@ -32,17 +32,10 @@
 			console.warn( 'Something went wrong.', err );
 			quote.textContent = 'Something went wrong. Can you try again?';
 		} );
-	}
-
-	/**
-	 * Fetch new quote on button click.
-	 */
-	var handleClick = function () {
-		fetchQuote();
-	}
+	};
 
 	// Listen button click.
-	newQuote.addEventListener( 'click', handleClick, false );
+	newQuote.addEventListener( 'click', fetchQuote, false );
 
 	// Create div for speak.
 	addSpeakContainer();
