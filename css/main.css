@@ -216,13 +216,13 @@ h2 {
 
 /* Links. */
 a {
-	color: var(--color-primary-700);
+	color: var(--color-grey-100);
 }
 
 a:hover,
 a:focus,
 a:active {
-	color: var(--color-primary-900);
+	color: var(--color-white);
 }
 
 /* Blockquote. */
