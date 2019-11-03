@@ -37,8 +37,8 @@
 		var k = 0;
 		app.innerHTML = data.map( function ( articles ) {
 			k++;
-			return `<h2>${ allInfo.name[k - 1] } (${ allInfo.count[k - 1] } total)</h2><ul>` + articles.map( function ( article ) {
-				return `<li><a href="${ article.link }">${ article.title.rendered }</a></li>`;
+			return `<h2>${ sanitizeHTML( allInfo.name[k - 1] ) } (${ sanitizeHTML( allInfo.count[k - 1] ) } total)</h2><ul>` + articles.map( function ( article ) {
+				return `<li><a href="${ sanitizeHTML( article.link ) }">${ sanitizeHTML( article.title.rendered ) }</a></li>`;
 			} ).join( '' ) + '</ul>';
 		} ).join( '' );
 	};
