@@ -23,11 +23,9 @@
 	 */
 	var renderArticles = function ( data ) {
 		// Loop all info so that we can get all under same umbrella.
-		var k = 0;
-		allInfo.forEach( function ( field ) {
+		allInfo.forEach( function ( field, index ) {
 			// Add as articles object.
-			field.articles = data[k];
-			k++;
+			field.articles = data[index];
 		} );
 
 		console.log( data, allInfo );
