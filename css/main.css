@@ -365,6 +365,12 @@ main {
   margin-top: var(--flow-space);
 }
 
+.grid {
+	display: grid;
+	grid-gap: 2rem;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) ) ;
+}
+
 
 /*--------------------------------------------------------------
 # Components - specific UI components.
