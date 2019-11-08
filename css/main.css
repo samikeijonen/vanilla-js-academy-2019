@@ -250,6 +250,7 @@ table tr:nth-child(2n) {
 }
 
 /* Forms.*/
+button,
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -276,6 +277,7 @@ select {
 	transition: all var(--transition-duration-md) easy-in-out;
 }
 
+button:focus,
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="url"]:focus,
@@ -385,6 +387,11 @@ main {
 
 .main-nav__item {
 	margin-right: var(--spacing-3x);
+}
+
+/* Buttons */
+.button--light {
+	background-color: var(--color-white);
 }
 
 
