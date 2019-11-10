@@ -9,8 +9,6 @@
 		return;
 	}
 
-	var message = document.querySelector( '#message' );
-
 	// The monsters and socks.
 	var monsters = [
 		'monster1',
@@ -30,64 +28,67 @@
 	// Store clicked monsters.
 	var clickedMonsters = [];
 
-	var messageText = '';
-
 	shuffle( monsters );
 
-	// Loop monsters but show door at first.
-	app.innerHTML = '<div class="grid">' +
-		monsters.map( function ( monster ) {
-			return `<button class="button--light js-reveal">
-				<img class="js-door" src="img/door.svg" alt="Reveal monster, or?" data-monster="${ monster }">
-				<img class="js-who-knows-what" src="img/${ sanitizeHTML( monster ) }.svg" alt="${ sanitizeHTML( monster ) }" tabindex="-1" hidden>
-			</button>`
-		} ).join( '' ) +
-	'</div>';
+	/**
+	 * Loop monsters but show door at first.
+	 */
+	var startGame = function () {
+		app.innerHTML = '<div class="grid">' +
+			monsters.map( function ( monster ) {
+				return `<div class"js-monster-wrapper"><button class="button--light js-reveal" data-monster="${ sanitizeHTML( monster ) }">
+					<img class="js-door" src="img/door.svg" alt="Reveal monster, or?" data-monster="${ monster }">
+				</button></div>`
+			} ).join( '' ) +
+		'</div>';
+	};
 
+	/**
+	 * Click handler.
+	 *
+	 * @param {Object} e Clicked object.
+	 */
 	var handleClick = function ( e ) {
-		var el = e.target;
+		var clicked = e.target.closest( '.js-reveal' )
+		var playAgain = e.target.closest( '.js-play-again' )
 
-		// Bail if not clicking reveal button or elements inside it.
-		if ( ! el.closest( '.js-reveal' ) ) {
+		// Bail if not clicking reveal button or elements inside it. Or play again button.
+		if ( ! clicked && ! playAgain ) {
 			return;
 		}
 
-		// Door is inside the button or the current target.
-		var door = el.querySelector( '.js-door' ) || el;
+		// Play again.
+		if ( playAgain ) {
+			startGame();
+			return;
+		}
 
 		// Which monster or sock this door will open.
-		var whichOne = door.getAttribute( 'data-monster' );
+		var whichOne = clicked.getAttribute( 'data-monster' );
+
+		// Update parent node with revealed image.
+		clicked.parentNode.innerHTML = `<img alt="${ sanitizeHTML( whichOne ) }" src="img/${ sanitizeHTML( whichOne ) }.svg">`;
 
 		// Add to array which one have been opened.
 		clickedMonsters.push( whichOne );
 
-		// Revealed image is inside the button or the next item of the current element.
-		var revealed = el.querySelector( '.js-who-knows-what' ) || el.nextElementSibling;
-
-		// Disable button on click.
-		el.closest( '.js-reveal' ).setAttribute( 'disabled', '' );
-
-		// Hide door.
-		if ( door.getAttribute( 'data-monster' ) ) {
-			door.setAttribute( 'hidden', '' );
-		}
-
-		// Reveal monster or??
-		revealed.removeAttribute( 'hidden' );
-
-		// Focus on the revealed image.
-		revealed.focus();
-
 		// Check if the sock is the last one to click.
-		if ( whichOne === 'sock' && clickedMonsters.length !== monsters.length ) {
-			messageText = 'Game over!';
-		} else if ( whichOne === 'sock' && clickedMonsters.length == monsters.length ) {
+		var clickedMonstersLength = clickedMonsters.length;
+		var MonstersLength = monsters.length;
+		if ( whichOne === 'sock' && clickedMonstersLength !== MonstersLength ) {
+			messageText = `Game over! You got ${ clickedMonstersLength } / ${ MonstersLength } points.`;
+		} else if ( whichOne === 'sock' && clickedMonstersLength === MonstersLength ) {
 			messageText = 'You made it, congrats!';
 		}
 
-		// Add message.
-		message.textContent = messageText;
+		// Game message.
+		app.innerHTML = `<h2>${ messageText }</h2>
+		<button class="js-play-again">Play again</button>
+		`;
 	};
 
 	document.addEventListener( 'click', handleClick, false );
+
+	// Start game.
+	startGame();
 })();
