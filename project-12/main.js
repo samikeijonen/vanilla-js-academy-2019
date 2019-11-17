@@ -1,6 +1,3 @@
-/**
- * Fetch articles based on most popular categories by post count.
- */
 (function() {
 	var toc = document.querySelector( '#js-toc' );
 
